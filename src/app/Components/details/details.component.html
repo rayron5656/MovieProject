@@ -1,0 +1,20 @@
+<div class="card text-center text-info bg-dark mb-3" style="width: 50rem;  ">
+    <img class="card-img-top" style="height: 70rem" src="{{movie.image}}" alt="Card image cap">
+    <div class="card-body">
+      <p class="h1 card-text">{{movie.name}}</p>
+      <p class="h1 card-text">User-score: {{movie.score /10 | percent}}</p>
+      <p class="h3 card-text"> {{movie.summery}}</p>
+      
+      <embed class="embed-responsive-item" [src]="SanitizeURL(movie.trailer)" allowfullscreen>
+      <div class="row">
+        <div class="col-12">
+          <button routerLink="/" class="btn btn-info"> Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container">
+    
+       
+    
+    

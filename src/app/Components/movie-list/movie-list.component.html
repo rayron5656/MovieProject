@@ -1,1 +1,43 @@
-<p>movie-list works!</p>
+<div class="row">
+    <div class="col-8 offset-2">
+    <h2 class="text-center text-info">All Movies</h2>
+    <div [hidden]="movies.length != 0" class="card text-info bg-dark m-5">
+        <div class="text-center text-info bg-dark m-1">
+          <h1 class="m-4">Welcome!</h1>
+        </div>
+        <div class=" text-center card-body bg-dark text-info ">
+          <h5 class="card-title m-3 p-2">No movie to show right now.</h5>
+          <p class="card-text m-3">it may accour if the API is not running or you don't have internet connection.</p>
+          
+        </div>
+      </div>
+            
+        <table [hidden]="movies.length == 0" class="table table-dark">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    
+                    <td>Genre</td>
+                    <td>Score</td>
+                    <td>Image</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of movies">
+                    <td class="text-center align-middle"><strong>{{m.name}}</strong></td>
+                        
+                    <td class=" align-middle"><strong>{{ m.genre}}</strong></td>
+                    <td class=" align-middle"><strong>{{m.score}} / 10</strong></td> 
+                    <td><img width="100" class="rounded-circle" height="125" src="{{m.image}}" alt=""></td>
+                    <td class="text-center align-middle" >
+                          <img class="m-2" src="../../../assets/SVG/Heart.svg" [hidden]="m.IsWatch" width="25" height="25" title="Add To Watch List" (click)="AddToWatchList(m.id)">
+                          <img class="m-2" src="../../../assets/SVG/RedHerat.svg" [hidden]="!m.IsWatch" width="25" height="25" title="Add To Watch List" (click)="RemoveFromWatchList(m.id)">
+                          <img class="m-2" src="../../../assets/SVG/Details.svg" width="25" height="25" title="Movie Details"  routerLink="/details/{{m.id}}">
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+    </div>   
+
+</div>
