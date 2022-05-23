@@ -6,14 +6,17 @@ import { Movie } from '../interfaces/movie';
 })
 export class LocalStorageService {
   RemoveFromLocalStorage(id: number) {
+
     var movies: Movie[] = this.GetLocalStorage();
+
     if (movies != null) {
       for (var i = 0; i < movies.length; i++) {
-        if (movies[i].id == id) {
-          movies.splice(i, 1);
+        if(movies[i].id == id) {
+            movies.splice(i, 1);
         }
       }
     }
+
     localStorage.setItem(this.WATCHLIST_KEY, JSON.stringify(movies));
   }
 
@@ -22,7 +25,8 @@ export class LocalStorageService {
   constructor() { }
 
   GetLocalStorage(): Movie[] {
-    var movies: Movie[] = JSON.parse(localStorage.getItem(this.WATCHLIST_KEY) as string);
+    var movies: Movie[] = JSON
+      .parse(localStorage.getItem(this.WATCHLIST_KEY) as string);
     return movies;
   }
 
