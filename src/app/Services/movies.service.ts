@@ -15,7 +15,7 @@ export class MoviesService {
   constructor(private _client :HttpClient) { }
 
     GetAllMovies() : Observable<any>{
-    return  this._client.get<Observable<any>>(`${this.SERVER}/Movies`);
+    return  this._client.get<Observable<any>>(`${this.SERVER}/Movies/GetMovies`);
   }
 
   GetSingleMovie(id:number) : Observable<any>{

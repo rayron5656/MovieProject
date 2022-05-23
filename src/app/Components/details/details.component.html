@@ -4,11 +4,13 @@
       <p class="h1 card-text">{{movie.name}}</p>
       <p class="h1 card-text">User-score: {{movie.score /10 | percent}}</p>
       <p class="h3 card-text"> {{movie.summery}}</p>
-      
-      <embed class="embed-responsive-item" [src]="SanitizeURL(movie.trailer)" allowfullscreen>
+      <div class="embed-responsive embed-responsive-16by9 p-3">
+        <iframe #Iframe class="embed-responsive-item " [src]="SanitizeURL(movie.trailer,Iframe)" allowfullscreen></iframe>
+      </div>
+     
       <div class="row">
         <div class="col-12">
-          <button routerLink="/" class="btn btn-info"> Back</button>
+          <button routerLink="/" class="btn btn-info mt-3">Back</button>
         </div>
       </div>
     </div>

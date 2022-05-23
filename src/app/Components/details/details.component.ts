@@ -26,8 +26,9 @@ export class DetailsComponent implements OnInit {
     this.movieService.GetSingleMovie(this.id).subscribe(data => { this.movie = data;});
   }
 
-  SanitizeURL(url:string) : SafeResourceUrl{
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  SanitizeURL(url:string ,iframe : HTMLIFrameElement) {
+    iframe.contentWindow?.location.replace(url);
+    
   }
 
 }
